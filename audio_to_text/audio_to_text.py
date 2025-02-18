@@ -13,13 +13,13 @@ class Audio_to_text():
     def transcribe(self, file=None) -> None:
         if file:
             assert(os.path.exists(os.path.join(self.__audios_path,file)))
-            print(f"Transcribiendo {file}...")
+            print(f"Transcribing {file}...")
             result = self.__model.transcribe(os.path.join(self.__audios_path,file))
             self.text_to_file(result["text"],file[:-4])
             return
         l = len(self.audios)
         for i, aud in enumerate(self.audios, 1):
-            print(f"\rTranscribiendo {aud}  [{i}/{l}]...")
+            print(f"\rTranscribing {aud}  [{i}/{l}]...")
             result = self.__model.transcribe(os.path.join(self.__audios_path,aud))
             self.text_to_file(result["text"],aud[:-4])
 
@@ -32,7 +32,7 @@ class Audio_to_text():
 if __name__ == "__main__":
     a = Audio_to_text()
     while True:
-        act = int(input("0) Exit \n1) Translate all \n2) Select file \n -> "))
+        act = int(input("0) Exit \n1) transcribe all \n2) Select file \n -> "))
         if act == 0: break
         if act == 1: a.transcribe()
         if act == 2:
