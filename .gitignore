@@ -1,0 +1,7 @@
+*.mp3
+*.mp4
+*.mkv
+*.txt
+.vscode/
+
+!req.txt
